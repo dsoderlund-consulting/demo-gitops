@@ -10,6 +10,6 @@ Once it is installed in a kubernetes cluster, you can set it up to sync from git
 
 This is how you can deploy an application set to create the applications in this repository:
 
-` sh
+``` bash
 kubectl apply -f github-appset.yaml
-`
+```
