@@ -1,0 +1,57 @@
+apiVersion: argoproj.io/v1alpha1
+kind: ApplicationSet
+metadata:
+  name: github-appset
+  namespace: argocd
+spec:
+  generators:
+  - git:
+      repoURL: 'ssh://git@github.com/dsoderlund-consulting/demo-gitops'
+      revision: main
+      directories:
+        - path: gitops/apps/github-appset/*/*/*/*/*/*
+        # 0: "gitops"
+        # 1: "apps"
+        # 2: "github-appset"
+        # 3: {cluster} 
+        # 4: {project} 
+        # 5: {system} 
+        # 6: {namespace}
+        # 7: {team} 
+        # 8: {component/application}
+  syncPolicy:
+    preserveResourcesOnDeletion: true
+
+  template:
+    metadata:
+      name: "{{path[8]}}"
+      labels:
+        appSet: "github-appset"
+        type: "generatedApp"
+        cluster: "{{path[3]}}"
+        project: "{{path[4]}}"
+        system: "{{path[5]}}"
+        namespace: "{{path[6]}}"
+        team:  "{{path[7]}}"
+        component: "{{path[8]}}"
+        app: "{{path[8]}}"
+        
+      annotations:
+        argocd-image-updater.argoproj.io/image-list: "images.mgmt.dsoderlund.consulting/{{path[8]}}"
+        argocd-image-updater.argoproj.io/write-back-method: git
+    spec:
+      project: "{{path[4]}}"
+      source:
+        repoURL: 'ssh://git@github.com/dsoderlund-consulting/demo-gitops'
+        targetRevision: main
+        path: '{{path}}'
+      destination:
+        name: "{{path[3]}}"
+        namespace: '{{path[5]}}'
+      syncPolicy:
+        automated:
+          selfHeal: false
+        syncOptions:
+        - CreateNamespace=true
+        - ApplyOutOfSyncOnly=true
+
