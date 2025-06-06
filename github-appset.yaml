@@ -6,7 +6,7 @@ metadata:
 spec:
   generators:
   - git:
-      repoURL: 'ssh://git@github.com/dsoderlund-consulting/demo-gitops'
+      repoURL: 'https://github.com/dsoderlund-consulting/demo-gitops'
       revision: main
       directories:
         - path: gitops/apps/github-appset/*/*/*/*/*/*
@@ -42,7 +42,7 @@ spec:
     spec:
       project: "{{path[4]}}"
       source:
-        repoURL: 'ssh://git@github.com/dsoderlund-consulting/demo-gitops'
+        repoURL: 'https://github.com/dsoderlund-consulting/demo-gitops'
         targetRevision: main
         path: '{{path}}'
       destination:
