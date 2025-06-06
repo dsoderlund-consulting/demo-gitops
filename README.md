@@ -13,3 +13,19 @@ This is how you can deploy an application set to create the applications in this
 ``` bash
 kubectl apply -f github-appset.yaml
 ```
+
+## Flux
+
+Flux is another popular choice. It is faster and a bit more opinionated on how a sync should happen and doesn't feature a GUI out of the box.
+
+## Shared configuration
+
+The api gateway for the platform holds some shared configuration for all applications.
+
+To get around having to change this application, there is a folder in which you can add files with new dns names that should be valid redirect uris for applications behind the oauth2proxy.
+
+The location to place files is in allowedDnsConfigPath.txt
+
+``` bash
+cat allowedDnsConfigPath.txt
+```

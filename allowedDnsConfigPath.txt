@@ -1,0 +1,1 @@
+./gitops/apps/github-appset/mgmt/default/strongmoose/oauth2proxy/dsoderlund.consulting/oauth2proxy-shared-config/allowedDnsNames/
