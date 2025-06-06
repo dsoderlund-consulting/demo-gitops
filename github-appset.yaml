@@ -47,7 +47,7 @@ spec:
         path: '{{path}}'
       destination:
         name: "{{path[3]}}"
-        namespace: '{{path[5]}}'
+        namespace: '{{path[6]}}'
       syncPolicy:
         automated:
           selfHeal: false
