@@ -1,0 +1,14 @@
+apiVersion: backstage.io/v1alpha1
+kind: System
+metadata:
+  name: demo-system
+  title: The demo system
+  description: A system for demos
+  annotations:
+    argocd/app-selector: "system=demo-system"
+  links:
+    - url: https://dsoderlund.consulting
+      title: David Söderlund's consultancy website
+      icon: website
+spec:
+  owner: user:ds-dsoderlund.consulting
