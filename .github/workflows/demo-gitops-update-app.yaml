@@ -17,6 +17,8 @@ on:
         type: string
 jobs:
   update:
+    permissions: 
+      contents: write
     runs-on: ubuntu-latest
     steps:
       - name: Checkout repo
