@@ -37,7 +37,7 @@ spec:
         app: "{{path[8]}}"
         
       annotations:
-        argocd-image-updater.argoproj.io/image-list: "images.mgmt.dsoderlund.consulting/{{path[8]}}"
+        argocd-image-updater.argoproj.io/image-list: "images.mgmt.dsoderlund.consulting/{{path[8]}},docker.io/dsoderlund/{{path[8]}}-frontend,docker.io/dsoderlund/{{path[8]}}-backend"
         argocd-image-updater.argoproj.io/write-back-method: git
     spec:
       project: "{{path[4]}}"
