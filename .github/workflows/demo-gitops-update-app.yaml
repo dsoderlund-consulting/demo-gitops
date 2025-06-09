@@ -13,6 +13,8 @@ on:
         default: ""
       newTag:
         description: 'Tag to set'
+        required: true
+        type: string
 jobs:
   update:
     runs-on: ubuntu-latest
@@ -22,14 +24,19 @@ jobs:
       - name: Finds component recursively in appset and sets new tag
         shell: pwsh
         run: |
+          ls
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module powershell-yaml
           Import-Module powershell-yaml
 
           $newTag = "${{ inputs.newTag }}"
+          $component = "${{ inputs.component }}"
           $subComponent = "${{ inputs.subComponent }}"
 
-          $ComponentPath = Get-ChildItem gitops/apps/github-appset/ -Recurse -Filter $myApp -Directory | Select-Object -ExpandProperty FullName
+          Write-Host "Updating $component to $newTag for subcomponent $subComponent"
+          
+
+          $ComponentPath = Get-ChildItem gitops/apps/github-appset/ -Recurse -Filter $component -Directory | Select-Object -ExpandProperty FullName
           $ComponentPath | Get-ChildItem -Filter *.yaml | ForEach-Object {
               $document = Get-Content $_ | ConvertFrom-Yaml
               # it recursively finds "image" within spec, and if it is found under a node, checks if that node matches $subComponent unless $subComponent is ignored.
