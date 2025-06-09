@@ -24,7 +24,6 @@ jobs:
       - name: Finds component recursively in appset and sets new tag
         shell: pwsh
         run: |
-          ls
           Set-PSRepository PSGallery -InstallationPolicy Trusted
           Install-Module powershell-yaml
           Import-Module powershell-yaml
@@ -51,5 +50,4 @@ jobs:
         with:
           add: gitops/apps/github-appset/
           default_author: github_actor
-          pull: '--rebase'
           push: true
