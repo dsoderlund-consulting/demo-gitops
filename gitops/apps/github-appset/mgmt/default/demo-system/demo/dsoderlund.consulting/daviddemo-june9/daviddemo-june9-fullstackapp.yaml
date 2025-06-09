@@ -4,7 +4,7 @@ metadata:
   name: "daviddemo-june9"
 spec:
   backend:
-    image: "docker.io/dsoderlund-consulting/daviddemo-june9-backend:0.0.1"
+    image: "docker.io/dsoderlund-consulting/daviddemo-june9-backend:latest"
     replicas: 1
     containerPort: 8080
     databaseConnectionValues: true
@@ -12,7 +12,7 @@ spec:
       - name: ASPNETCORE_ENVIRONMENT
         value: "Production"
   frontend:
-    image: "docker.io/dsoderlund-consulting/daviddemo-june9-frontend:0.0.1"
+    image: "docker.io/dsoderlund-consulting/daviddemo-june9-frontend:latest"
     replicas: 1
     containerPort: 80
   ingress:
