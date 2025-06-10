@@ -3,20 +3,20 @@ apiVersion: crossplane.dsoderlund.consulting/v1
 spec:
   ingress:
     hostname: developersbay.sam.dsoderlund.consulting
+  database:
+    replicas: 1
+  frontend:
+    containerPort: 80
+    replicas: 1
+    image: docker.io/dsoderlund/developersbay-frontend:2f56b874
   backend:
     extraEnvironmentVariables:
     - name: ASPNETCORE_ENVIRONMENT
       value: Production
+    replicas: 1
+    image: docker.io/dsoderlund/developersbay-backend:4d7ec38c
     databaseConnectionValues: true
     containerPort: 8080
-    image: docker.io/dsoderlund/developersbay-backend:0.0.1
-    replicas: 1
-  frontend:
-    replicas: 1
-    image: docker.io/dsoderlund/developersbay-frontend:2f56b874
-    containerPort: 80
-  database:
-    replicas: 1
 metadata:
   name: developersbay
 
