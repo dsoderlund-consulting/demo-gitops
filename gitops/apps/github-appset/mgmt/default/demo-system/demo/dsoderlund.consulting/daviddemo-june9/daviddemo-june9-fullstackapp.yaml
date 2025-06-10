@@ -1,22 +1,22 @@
-kind: FullstackApp
+apiVersion: crossplane.dsoderlund.consulting/v1
 spec:
-  backend:
-    containerPort: 8080
-    databaseConnectionValues: true
-    replicas: 1
-    image: docker.io/dsoderlund/daviddemo-june9-backend:TJÄÄNA
-    extraEnvironmentVariables:
-    - name: ASPNETCORE_ENVIRONMENT
-      value: Production
-  ingress:
-    hostname: daviddemo-june9.sam.dsoderlund.consulting
   frontend:
+    replicas: 1
     containerPort: 80
     image: docker.io/dsoderlund/daviddemo-june9-frontend:main-071b3d0-2025-06-09.210625
+  ingress:
+    hostname: daviddemo-june9.sam.dsoderlund.consulting
+  backend:
+    containerPort: 8080
     replicas: 1
+    image: docker.io/dsoderlund/daviddemo-june9-backend:main-d4ed152-2025-06-09.210647
+    databaseConnectionValues: true
+    extraEnvironmentVariables:
+    - value: Production
+      name: ASPNETCORE_ENVIRONMENT
   database:
     replicas: 1
 metadata:
   name: daviddemo-june9
-apiVersion: crossplane.dsoderlund.consulting/v1
+kind: FullstackApp
 
