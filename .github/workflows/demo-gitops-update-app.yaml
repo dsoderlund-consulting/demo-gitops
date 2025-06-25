@@ -17,6 +17,9 @@ on:
         type: string
 jobs:
   update:
+    # concurrency:
+    #   group: update-demo-gitops-application-images
+    #   cancel-in-progress: false
     permissions: 
       contents: write
     runs-on: ubuntu-latest
@@ -51,3 +54,5 @@ jobs:
       - uses: EndBug/add-and-commit@v9
         with:
           add: gitops/apps/github-appset/
+          pull: '--rebase --autostash'
+          message: "Updated component [${{ inputs.component }} ${{ inputs.subComponent }}] to tag [${{ inputs.newTag }}]"
