@@ -17,6 +17,9 @@ on:
         type: string
 jobs:
   update:
+    concurrency:
+      group: ${{ inputs.component }}
+      cancel-in-progress: false
     permissions: 
       contents: write
     runs-on: ubuntu-latest
@@ -39,15 +42,17 @@ jobs:
 
           $ComponentPath = Get-ChildItem gitops/apps/github-appset/ -Recurse -Filter $component -Directory | Select-Object -ExpandProperty FullName
           $ComponentPath | Get-ChildItem -Filter *.yaml | ForEach-Object {
-              $document = Get-Content $_ | ConvertFrom-Yaml
+              $document = Get-Content $_ | ConvertFrom-Yaml -Ordered
               # it recursively finds "image" within spec, and if it is found under a node, checks if that node matches $subComponent unless $subComponent is ignored.
               $document.spec.GetEnumerator() | Where-Object {
                   $_.Value -is [System.Collections.IDictionary] -and ($_.Name -eq $subComponent -or $subComponent -eq '' -or $null -eq $subComponent)
               } | ForEach-Object {
                   $_.Value.image = $_.Value.image -replace '(?m):.*$', ":$newTag"
               }
-              $document | ConvertTo-Yaml | Set-Content $_
+              $document | ConvertTo-Yaml -Options WithIndentedSequences | Set-Content $_
           }
       - uses: EndBug/add-and-commit@v9
         with:
           add: gitops/apps/github-appset/
+          message: "Updated component [${{ inputs.component }} ${{ inputs.subComponent }}] to tag [${{ inputs.newTag }}]"
+          pull: '--rebase --autostash'
