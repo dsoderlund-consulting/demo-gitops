@@ -3,20 +3,20 @@ kind: FullstackApp
 metadata:
   name: developersbay
 spec:
-  ingress:
-    hostname: developersbay.sam.dsoderlund.consulting
   backend:
-    databaseConnectionValues: true
-    image: docker.io/dsoderlund/developersbay-backend:321
-    extraEnvironmentVariables:
-    - value: Production
-      name: ASPNETCORE_ENVIRONMENT
+    image: docker.io/dsoderlund/developersbay-frontend:y
     replicas: 1
     containerPort: 8080
-  database:
-    replicas: 1
+    databaseConnectionValues: true
+    extraEnvironmentVariables:
+      - name: ASPNETCORE_ENVIRONMENT
+        value: Production
   frontend:
-    image: docker.io/dsoderlund/developersbay-frontend:2f56b874
+    image: docker.io/dsoderlund/developersbay-frontend:x
+    replicas: 1
     containerPort: 80
+  ingress:
+    hostname: developersbay.sam.dsoderlund.consulting
+  database:
     replicas: 1
 
