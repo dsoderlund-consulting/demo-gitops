@@ -7,3 +7,4 @@ spec:
     containerPort: 80
     image: docker.io/dsoderlund/linux-sept8-frontend:ee0ca243
     replicas: 1
+

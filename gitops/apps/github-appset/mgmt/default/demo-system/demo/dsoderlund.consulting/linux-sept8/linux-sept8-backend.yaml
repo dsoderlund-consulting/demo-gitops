@@ -4,10 +4,11 @@ metadata:
   name: __ignored__
 spec:
   backend:
-    image: docker.io/dsoderlund/linux-sept8-backend:ee0ca243
+    image: docker.io/dsoderlund/linux-sept8-backend:5a911e58
     replicas: 1
     containerPort: 8080
     databaseConnectionValues: true
     extraEnvironmentVariables:
       - name: ASPNETCORE_ENVIRONMENT
         value: Production
+
