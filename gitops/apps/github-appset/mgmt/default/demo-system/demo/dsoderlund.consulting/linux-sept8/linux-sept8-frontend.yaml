@@ -5,6 +5,6 @@ metadata:
 spec:
   frontend:
     containerPort: 80
-    image: docker.io/dsoderlund/linux-sept8-frontend:ee0ca243
+    image: docker.io/dsoderlund/linux-sept8-frontend:5a911e58
     replicas: 1
 
