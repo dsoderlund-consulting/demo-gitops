@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - linux-sept8-fullstackapp.yaml
+patches:
+  - path: linux-sept8-frontend.yaml
+    target:
+      kind: FullstackApp
+  - path: linux-sept8-backend.yaml
+    target:
+      kind: FullstackApp

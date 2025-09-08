@@ -1,0 +1,8 @@
+apiVersion: apps/v1
+kind: FullstackApp
+metadata:
+  name: __ignored__
+spec:
+  backend:
+    image: docker.io/dsoderlund/linux-sept8-backend:ee0ca243
+    replicas: 1
