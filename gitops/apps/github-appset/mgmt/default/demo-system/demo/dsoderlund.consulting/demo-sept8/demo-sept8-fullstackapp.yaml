@@ -12,7 +12,7 @@ spec:
       - name: ASPNETCORE_ENVIRONMENT
         value: Production
   frontend:
-    image: docker.io/dsoderlund/demo-sept8-frontend:0.0.1
+    image: docker.io/dsoderlund/demo-sept8-frontend:979d4237
     replicas: 1
     containerPort: 80
   ingress:
