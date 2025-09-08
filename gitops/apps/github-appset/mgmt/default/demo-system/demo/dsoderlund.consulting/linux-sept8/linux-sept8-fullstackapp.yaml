@@ -4,11 +4,7 @@ metadata:
   name: linux-sept8
 spec:
   backend:
-<<<<<<< Updated upstream
     image: docker.io/dsoderlund/linux-sept8-backend:ee0ca243
-=======
-    image: docker.io/dsoderlund/linux-sept8-backend:0.0.1
->>>>>>> Stashed changes
     replicas: 1
     containerPort: 8080
     databaseConnectionValues: true
@@ -16,11 +12,7 @@ spec:
       - name: ASPNETCORE_ENVIRONMENT
         value: Production
   frontend:
-<<<<<<< Updated upstream
-    image: docker.io/dsoderlund/linux-sept8-frontend:0.0.1
-=======
     image: docker.io/dsoderlund/linux-sept8-frontend:ee0ca243
->>>>>>> Stashed changes
     replicas: 1
     containerPort: 80
   ingress:
