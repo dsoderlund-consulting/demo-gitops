@@ -51,11 +51,8 @@ jobs:
               }
               $document | ConvertTo-Yaml -Options WithIndentedSequences | Set-Content $_
           }
-      - uses: Wandalen/wretry.action@v3.8.0
+      - uses: EndBug/add-and-commit@v9
         with:
-          action:  EndBug/add-and-commit@v9
-          attempt_limit: 3
-          with: |
-            add: gitops/apps/github-appset/
-            message: "Updated component [${{ inputs.component }} ${{ inputs.subComponent }}] to tag [${{ inputs.newTag }}]"
-            pull: '--rebase --autostash'
+          add: gitops/apps/github-appset/
+          message: "Updated component [${{ inputs.component }} ${{ inputs.subComponent }}] to tag [${{ inputs.newTag }}]"
+          pull: '--rebase --autostash'
