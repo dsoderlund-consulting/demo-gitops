@@ -4,6 +4,7 @@ metadata:
   name: __ignored__
 spec:
   frontend:
-    image: docker.io/dsoderlund/sept10-frontend:latest
+    image: docker.io/dsoderlund/sept10-frontend:bc6a506e
     replicas: 1
     containerPort: 80
+

@@ -1,9 +1,10 @@
 apiVersion: crossplane.dsoderlund.consulting/v1
 kind: FullstackApp
 metadata:
-  name: "sept10"
+  name: sept10
 spec:
   ingress:
     hostname: sept10.sam.dsoderlund.consulting
   database:
     replicas: 1
+
