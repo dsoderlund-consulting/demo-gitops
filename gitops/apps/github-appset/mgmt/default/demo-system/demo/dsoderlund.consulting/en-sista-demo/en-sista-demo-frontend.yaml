@@ -7,3 +7,4 @@ spec:
     image: docker.io/dsoderlund/en-sista-demo-frontend:latest
     replicas: 1
     containerPort: 80
+
