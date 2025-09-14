@@ -1,9 +1,0 @@
-apiVersion: crossplane.dsoderlund.consulting/v1
-kind: FullstackApp
-metadata:
-  name: __ignored__
-spec:
-  frontend:
-    image: docker.io/dsoderlund/test-kustomize-frontend:b055fa63
-    replicas: 1
-    containerPort: 80
