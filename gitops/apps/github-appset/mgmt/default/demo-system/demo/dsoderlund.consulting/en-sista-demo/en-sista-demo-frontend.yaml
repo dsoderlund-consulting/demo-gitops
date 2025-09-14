@@ -4,7 +4,7 @@ metadata:
   name: __ignored__
 spec:
   frontend:
-    image: docker.io/dsoderlund/en-sista-demo-frontend:latest
+    image: docker.io/dsoderlund/en-sista-demo-frontend:d9e85bdd
     replicas: 1
     containerPort: 80
 
