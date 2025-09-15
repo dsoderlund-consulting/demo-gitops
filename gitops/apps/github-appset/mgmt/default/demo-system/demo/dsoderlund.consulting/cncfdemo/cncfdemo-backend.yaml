@@ -11,3 +11,4 @@ spec:
     extraEnvironmentVariables:
       - name: ASPNETCORE_ENVIRONMENT
         value: Production
+

@@ -4,6 +4,7 @@ metadata:
   name: __ignored__
 spec:
   frontend:
-    image: docker.io/dsoderlund/cncfdemo-frontend:latest
+    image: docker.io/dsoderlund/cncfdemo-frontend:ff8cfad2
     replicas: 1
     containerPort: 80
+
