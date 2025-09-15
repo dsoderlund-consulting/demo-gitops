@@ -4,7 +4,7 @@ metadata:
   name: __ignored__
 spec:
   backend:
-    image: docker.io/dsoderlund/cncfdemo-backend:latest
+    image: docker.io/dsoderlund/cncfdemo-backend:ff8cfad2
     replicas: 1
     containerPort: 8080
     databaseConnectionValues: true
