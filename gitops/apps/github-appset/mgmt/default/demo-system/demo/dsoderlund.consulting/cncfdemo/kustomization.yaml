@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - cncfdemo-fullstackapp.yaml
+patches:
+  - path: cncfdemo-frontend.yaml
+    target:
+      kind: FullstackApp
+  - path: cncfdemo-backend.yaml
+    target:
+      kind: FullstackApp
