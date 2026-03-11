@@ -1,0 +1,11 @@
+apiVersion: kustomize.config.k8s.io/v1beta1
+kind: Kustomization
+resources:
+  - davidtest4-fullstackapp.yaml
+patches:
+  - path: davidtest4-frontend.yaml
+    target:
+      kind: FullstackApp
+  - path: davidtest4-backend.yaml
+    target:
+      kind: FullstackApp
