@@ -4,7 +4,7 @@ metadata:
   name: __ignored__
 spec:
   frontend:
-    image: docker.io/dsoderlund/davidtest4-frontend:latest
+    image: docker.io/dsoderlund/davidtest4-frontend:3f48ba2e
     replicas: 1
     containerPort: 80
 
