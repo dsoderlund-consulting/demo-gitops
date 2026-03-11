@@ -7,3 +7,4 @@ spec:
     image: docker.io/dsoderlund/davidtest4-frontend:latest
     replicas: 1
     containerPort: 80
+
