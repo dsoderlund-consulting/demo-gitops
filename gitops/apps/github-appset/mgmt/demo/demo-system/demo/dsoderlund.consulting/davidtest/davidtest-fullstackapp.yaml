@@ -1,9 +1,0 @@
-apiVersion: crossplane.dsoderlund.consulting/v1
-kind: FullstackApp
-metadata:
-  name: "davidtest"
-spec:
-  ingress:
-    hostname: davidtest.sam.dsoderlund.consulting
-  database:
-    replicas: 1
